@@ -1235,14 +1235,10 @@ class PlayState extends MusicBeatState
 			accFormat.format.color = curRating.color;
 			accuracyTxt.text = 'Accuracy:${accuracy < 0 ? "-%" : '${CoolUtil.quantize(accuracy * 100, 100)}%'} - ${curRating.rating}';
 
-			var formatIndex:Int = -1;
 			for (i => frmtRange in accuracyTxt._formatRanges) if (frmtRange.format == accFormat) {
-				formatIndex = i;
+				accuracyTxt._formatRanges[i].range.start = accuracyTxt.text.length - curRating.rating.length;
+				accuracyTxt._formatRanges[i].range.end = accuracyTxt.text.length;
 				break;
-			}
-			if (formatIndex > -1) {
-				accuracyTxt._formatRanges[formatIndex].range.start = accuracyTxt.text.length - curRating.rating.length;
-				accuracyTxt._formatRanges[formatIndex].range.end = accuracyTxt.text.length;
 			}
 		}
 	}
