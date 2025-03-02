@@ -870,7 +870,7 @@ class CoolUtil
 		return FlxTween.parseFieldString(fieldPath);
 	}
 
-	function stringifyFieldsPath(fields:Array<OneOfTwo<String, Int>>):String {
+	public static function stringifyFieldsPath(fields:Array<OneOfTwo<String, Int>>):String {
 		var str = new StringBuf();
 		var first = true;
 		for (field in fields) {
