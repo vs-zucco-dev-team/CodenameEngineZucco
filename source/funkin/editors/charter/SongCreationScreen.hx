@@ -232,12 +232,13 @@ class SongCreationScreen extends UISubstateWindow {
 	}
 
 	function updateIcon(icon:String) {
-		if (iconSprite == null) add(iconSprite = new HealthIcon());
+		if (iconSprite == null) menuDataGroup.add(iconSprite = new HealthIcon());
 
 		iconSprite.setIcon(icon);
 		iconSprite.scale.set(iconSprite.defaultScale * 0.5, iconSprite.defaultScale * 0.5);
 		iconSprite.updateHitbox();
-		iconSprite.setPosition(iconTextBox.x + 150 + 8, (iconTextBox.y + 16) - (iconSprite.height/2));
+		iconSprite.setPosition(iconTextBox.x + iconTextBox.bWidth + 8, iconTextBox.y + (iconTextBox.bHeight / 2) - (iconSprite.height / 2));
+		iconSprite.scrollFactor.set(1, 1);
 	}
 
 	function saveSongInfo() {
