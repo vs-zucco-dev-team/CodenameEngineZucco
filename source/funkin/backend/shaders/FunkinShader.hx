@@ -518,8 +518,8 @@ class FunkinShader extends FlxShader implements IHScriptCustomBehaviour {
 				// shader input!!
 				var bitmap:BitmapData;
 				if (!isNotNull) bitmap = null;
-				else if (val is FlxGraphic) bitmap = val.bitmap;
 				else if (val is BitmapData) bitmap = val;
+				else if (val is FlxGraphic) bitmap = val.bitmap;
 				else {
 					throw new ShaderTypeException(name, Type.getClass(val), BitmapData);
 					return null;
