@@ -522,10 +522,10 @@ class PlayState extends MusicBeatState
 	 */
 	public function updateRating() {
 		var rating = null;
-		var acc = get_accuracy();
+		var acc = accuracy;  // caching since it has a getter with an operation  - Nex
 
-		for(e in comboRatings)
-			if (e.percent <= acc && (rating == null || rating.percent < e.percent))
+		if (comboRatings != null && comboRatings.length > 0) for (e in comboRatings)
+			if ((e.percent <= acc && e.maxMisses >= misses) && (rating == null || (rating.percent < e.percent && e.maxMisses >= misses)))
 				rating = e;
 
 		var event = scripts.event("onRatingUpdate", EventManager.get(RatingUpdateEvent).recycle(rating, curRating));
@@ -1970,8 +1970,10 @@ final class ComboRating {
 	public var percent:Float;
 	public var rating:String;
 	public var color:FlxColor;
+	public var maxMisses:Float;  // Float since it could be Math.POSITIVE_INFINITY  - Nex
 
-	public function new(percent:Float, rating:String, color:FlxColor) {
+	public function new(?percent:Float, ?rating:String, ?color:FlxColor, ?misses:Float) {
+		maxMisses = misses == null || Math.isNaN(misses) ? Math.POSITIVE_INFINITY : misses;
 		this.percent = percent;
 		this.rating = rating;
 		this.color = color;
