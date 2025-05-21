@@ -1,3 +1,6 @@
+
+Basically a fork of codename with funkin vis to make stuff easier
+
 # Friday Night Funkin' - Codename Engine (WIP)
 
 ## PLEASE NOTE - THIS IS STILL IN A BETA STATE
