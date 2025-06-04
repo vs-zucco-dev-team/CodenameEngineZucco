@@ -31,7 +31,7 @@ class Main extends Sprite
 	// good luck /gen <3 @crowplexus
 	public static final releaseCycle:String = "Beta";
 	// add a version number in dis shid rn 
-	public static final releaseVersion:String = "v0.0.0-legacy"
+	public static final releaseVersion:String = "v0.1.0-legacy";
 
 	public static var instance:Main;
 
