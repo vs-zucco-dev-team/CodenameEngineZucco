@@ -31,7 +31,7 @@ class Main extends Sprite
 	// good luck /gen <3 @crowplexus
 	public static final releaseCycle:String = "Beta";
 	// add a version number in dis shid rn 
-	public static final releaseVersion:String = Application.current.meta.get('version');
+	public static final releaseVersion:String = lime.app.Application.current.meta.get('version');
 
 	public static var instance:Main;
 
